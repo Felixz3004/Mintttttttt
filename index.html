@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ง้อแฟน 🌙</title>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="stars"></div>
+  <div id="fhearts"></div>
+
+  <div class="card">
+
+    <div class="photo-wrap">
+      <img src="fan.jpg" class="profile-img" alt="รูปคู่"> onerror="this.style.border='3px solid red'; console.log('โหลดรูปไม่ได้!')">
+    </div>
+
+    <div class="title">ถึงมิ้นๆ🌙</div>
+    <div class="subtitle">ขอโทษที่ทำให้นอยยยย</div>
+
+    <div class="message-box">
+      <div class="message-text">
+        เค้ารู้ว่าเค้าทำตัวไม่ถูกใจมิ้น และเค้าไม่มีข้อแก้ตัวใดๆ<br>
+        แต่เค้าอยากให้มิ้นรู้ว่า ทุกวันที่ผ่านไปโดยไม่มีมิ้น<br>
+        มันยากมากกว่าที่คิด 💔<br><br>
+        ถ้ามิ้นยังมีพื้นที่ในใจสักนิด<br>
+        ให้อภัยเค้าอีกครั้งได้ไหม? 🥺
+      </div>
+    </div>
+
+    <button class="music-btn" id="musicBtn" onclick="toggleMusic()">
+      <span class="music-note" id="noteIcon">🎵</span>
+      <span id="musicLabel">เปิดเพลงรัก</span>
+    </button>
+
+    <div class="btn-group" id="btnGroup">
+      <button class="btn-yes" onclick="sayYes()">ให้โอกาสนะ 💕</button>
+      <button class="btn-no" id="noBtn" onclick="moveNo()">ไม่!!!!!</button>
+    </div>
+
+    <div class="success-msg" id="successMsg">
+      <div class="success-emoji">🥰</div>
+      <div class="success-sub">เค้าจะไม่ทำให้มิ้นเสียใจอีกแล้ว ♡</div>
+    </div>
+
+  </div>
+
+  <!-- แก้: เพิ่ม id="loveAudio" ให้ JavaScript หาเจอ -->
+  <audio id="loveAudio" loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>

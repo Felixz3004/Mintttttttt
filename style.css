@@ -1,0 +1,242 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a0a2e 0%, #2d1b4e 40%, #1a0a2e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Prompt', sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+#stars,
+#fhearts {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: 0.2; }
+  to   { opacity: 1; }
+}
+
+.fheart {
+  position: absolute;
+  animation: floatUp 4s ease-in infinite;
+  opacity: 0;
+}
+
+@keyframes floatUp {
+  0%   { opacity: 0; transform: translateY(0) scale(0.5); }
+  20%  { opacity: 1; }
+  80%  { opacity: 0.8; }
+  100% { opacity: 0; transform: translateY(-300px) scale(1.2); }
+}
+
+/* ===== การ์ดหลัก ===== */
+.card {
+  position: relative;
+  z-index: 10;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,200,220,0.25);
+  border-radius: 28px;
+  padding: 36px 32px 40px;
+  max-width: 380px;
+  width: 92%;
+  backdrop-filter: blur(16px);
+  text-align: center;
+  box-shadow: 0 0 60px rgba(220,100,160,0.18);
+  animation: fadeInUp 0.8s ease both;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== รูปภาพ ===== */
+.photo-wrap {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  border: 3px solid rgba(255,150,180,0.6);
+  padding: 3px;
+  overflow: hidden;
+  background: rgba(255,100,150,0.1);
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+/* ===== ข้อความ ===== */
+.title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: rgba(255,200,220,0.7);
+  margin-bottom: 22px;
+  font-weight: 300;
+}
+
+/* ===== กล่องข้อความ ===== */
+.message-box {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,180,210,0.2);
+  border-radius: 16px;
+  padding: 18px 16px;
+  margin-bottom: 24px;
+  text-align: left;
+  position: relative;
+}
+
+.message-box::before {
+  content: '"';
+  position: absolute;
+  top: -10px;
+  left: 12px;
+  font-size: 70px;
+  color: rgba(220,100,160,0.2);
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+.message-text {
+  font-size: 14px;
+  color: rgba(255,230,240,0.9);
+  line-height: 1.85;
+  font-weight: 300;
+  padding-top: 10px;
+}
+
+/* ===== ปุ่มเพลง ===== */
+.music-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(220,100,160,0.18);
+  border: 1px solid rgba(220,100,160,0.4);
+  color: rgba(255,200,225,0.9);
+  border-radius: 30px;
+  padding: 9px 22px;
+  font-size: 13px;
+  font-family: 'Prompt', sans-serif;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: all 0.25s;
+}
+
+.music-btn:hover {
+  background: rgba(220,100,160,0.32);
+  transform: scale(1.04);
+}
+
+.music-btn.playing {
+  background: rgba(180,60,120,0.4);
+  border-color: rgba(255,130,180,0.7);
+}
+
+.music-note {
+  display: inline-block;
+}
+
+.music-btn.playing .music-note {
+  animation: bounce 0.5s infinite alternate;
+}
+
+@keyframes bounce {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-3px); }
+}
+
+/* ===== ปุ่มตอบ ===== */
+.btn-group {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.btn-yes {
+  flex: 1;
+  padding: 13px 0;
+  border-radius: 50px;
+  border: none;
+  background: linear-gradient(135deg, #e8527a, #c9345e);
+  color: white;
+  font-size: 15px;
+  font-family: 'Prompt', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s;
+  box-shadow: 0 4px 20px rgba(220,80,120,0.35);
+}
+
+.btn-yes:hover {
+  transform: scale(1.06);
+}
+
+.btn-no {
+  flex: 1;
+  padding: 13px 0;
+  border-radius: 50px;
+  border: 1px solid rgba(255,180,210,0.35);
+  background: transparent;
+  color: rgba(255,200,220,0.8);
+  font-size: 15px;
+  font-family: 'Prompt', sans-serif;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.btn-no:hover {
+  background: rgba(255,255,255,0.06);
+}
+
+/* ===== ข้อความสำเร็จ ===== */
+.success-msg {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.success-emoji {
+  font-size: 50px;
+  animation: pop 0.4s cubic-bezier(.4,2,.5,1) both;
+}
+
+@keyframes pop {
+  from { transform: scale(0); }
+  to   { transform: scale(1); }
+}
+
+.success-sub {
+  font-size: 13px;
+  color: rgba(255,200,220,0.75);
+  font-weight: 300;
+}
